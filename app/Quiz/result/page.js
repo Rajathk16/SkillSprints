@@ -44,7 +44,7 @@ export default function QuizResult() {
 
   const getPerformanceMessage = () => {
     if (score >= 90) return { text: "Outstanding! 🎉", color: "text-green-600", bg: "bg-green-50" };
-    if (score >= 75) return { text: "Great Job! 🌟", color: "text-blue-600", bg: "bg-blue-50" };
+    if (score >= 75) return { text: "Great Job! 🌟", color: "text-accent", bg: "bg-gray-50" };
     if (score >= 60) return { text: "Good Effort! 👍", color: "text-yellow-600", bg: "bg-yellow-50" };
     return { text: "Keep Practicing! 💪", color: "text-red-600", bg: "bg-red-50" };
   };
@@ -53,14 +53,14 @@ export default function QuizResult() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-indigo-600"></div>
+      <div className="min-h-screen bg-linear-to-br from-gray-50 via-white to-gray-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-green-600"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-linear-to-br from-gray-50 via-white to-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden mb-8">
@@ -92,7 +92,7 @@ export default function QuizResult() {
                     cy="100"
                     r="90"
                     fill="none"
-                    stroke="#4f46e5"
+                    stroke="#2e8b57"
                     strokeWidth="12"
                     strokeDasharray={`${(score / 100) * 565} 565`}
                     strokeLinecap="round"
@@ -123,7 +123,7 @@ export default function QuizResult() {
             </div>
 
             
-            <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl p-6 mb-6">
+            <div className="bg-linear-to-r from-yellow-50 to-orange-50 rounded-xl p-6 mb-6 group">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <div className="bg-yellow-400 rounded-full p-3 mr-4">
@@ -136,7 +136,7 @@ export default function QuizResult() {
                     <div className="text-sm text-gray-600">Keep going to level up!</div>
                   </div>
                 </div>
-                <div className="text-3xl font-bold text-yellow-600">+{score}</div>
+                <div className="text-3xl font-bold text-yellow-900">+{score}</div>
               </div>
             </div>
 
@@ -227,9 +227,9 @@ export default function QuizResult() {
                     </div>
 
                     {detailedResults.explanations[index] && (
-                      <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
-                        <div className="font-semibold text-blue-900 mb-1">Explanation:</div>
-                        <div className="text-blue-800 text-sm">
+                      <div className="bg-gray-50 border-l-4 border-gray-400 p-4 rounded">
+                        <div className="font-semibold text-strong mb-1">Explanation:</div>
+                        <div className="text-muted text-sm">
                           {detailedResults.explanations[index]}
                         </div>
                       </div>

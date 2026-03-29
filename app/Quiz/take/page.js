@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { db, authFeature } from "@/lib/firebase";
 import {
@@ -36,7 +36,7 @@ export default function TakeQuiz() {
     if (time === 0 && !submitted) {
       submitQuiz();
     }
-  }, [time]);
+  }, [time, submitted, submitQuiz]);
 
   
   const loadQuiz = async () => {
@@ -89,7 +89,7 @@ export default function TakeQuiz() {
     }
   };
 
-  const submitQuiz = async () => {
+  const submitQuiz = useCallback(async () => {
     if (submitted) return;
 
     const user = authFeature.currentUser;
@@ -119,7 +119,7 @@ export default function TakeQuiz() {
     });
 
     setScore(correct);
-  };
+  }, [submitted, questions, answers, time]);
 
   if (!questions.length) {
     return (
@@ -170,7 +170,7 @@ export default function TakeQuiz() {
             onClick={() => selectAnswer(opt)}
             className={`block w-full mb-2 p-3 rounded ${
               answers[current] === opt
-                ? "bg-blue-600"
+                ? "bg-accent"
                 : "bg-slate-700"
             }`}
           >

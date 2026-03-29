@@ -108,12 +108,12 @@ export default function EasyPractice() {
   };
 
   if (!questions.length)
-    return <div className="flex items-center justify-center min-h-screen bg-linear-to-br from-indigo-50 via-white to-blue-100">
+    return <div className="flex items-center justify-center min-h-screen bg-linear-to-br from-indigo-50 via-white to-gray-100">
     
     <div className="bg-white shadow-xl rounded-2xl p-10 flex flex-col items-center gap-6 w-[320px]">
       
   
-      <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+      <div className="w-12 h-12 border-4 border-green-500 border-t-transparent rounded-full animate-spin"></div>
 
 
       <div className="text-center">
@@ -135,7 +135,7 @@ export default function EasyPractice() {
     completedQuestions.length === questions.length;
 
    return (
-  <div className="min-h-screen bg-linear-to-br from-slate-900 via-blue-950 to-slate-900 text-white p-8">
+  <div className="min-h-screen bg-linear-to-br from-slate-900 via-gray-900 to-slate-900 text-white p-8">
 
     <button
       onClick={() => router.back()}
@@ -145,7 +145,7 @@ export default function EasyPractice() {
     </button>
 
     <h2 className="text-3xl font-bold mb-2">Easy Practice</h2>
-    <p className="mb-6 text-blue-200">
+    <p className="mb-6 text-muted">
       Question {current + 1} / {questions.length}
     </p>
 
@@ -162,7 +162,7 @@ export default function EasyPractice() {
           <button
             key={i}
             onClick={() => handleAnswer(opt)}
-            className="block w-full text-left bg-blue-100 hover:bg-blue-200 text-black mt-3 px-5 py-3 rounded-lg font-medium transition"
+            className="block w-full text-left bg-gray-100 hover:bg-gray-200 text-black mt-3 px-5 py-3 rounded-lg font-medium transition"
           >
             {opt}
           </button>
@@ -190,7 +190,7 @@ export default function EasyPractice() {
 
           <button
             onClick={nextQuestion}
-            className="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition"
+            className="mt-6 bg-accent hover:opacity-90 text-white px-6 py-3 rounded-lg font-semibold transition"
           >
             Next Question →
           </button>
